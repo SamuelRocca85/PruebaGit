@@ -1,17 +1,19 @@
-const express = require('express')
-const mongoose = require('mongoose')
-require('dotenv').config()
+import express, { json } from 'express'
+import { connect, model } from 'mongoose'
+import dotenv from 'dotenv'
+dotenv.config()
+import studentRoute from './routes/studentRoutes.js'
 const app = express()
 const port = 3000
 
-app.use(express.json())
+app.use(json())
 
-mongoose.connect(process.env.MONGOOSE_KEY, { useNewUrlParser: true })
-const Alumno = mongoose.model('Alumno', {
-  id: Number,
-  name: String,
-  age: Number,
-})
+connect(process.env.MONGOOSE_KEY, { useNewUrlParser: true })
+// const Alumno = model('Alumno', {
+//   id: Number,
+//   name: String,
+//   age: Number,
+// })
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -25,15 +27,7 @@ app.get('/home', (req, res) => {
   res.send('Home')
 })
 
-app.post('/mongo', (req, res) => {
-  const alumno = new Alumno({
-    id: 2,
-    name: 'Mongo',
-    age: 23,
-  })
-  alumno.save().then(() => console.log('Creado'))
-  res.send('Exito')
-})
+app.use(studentRoute)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
