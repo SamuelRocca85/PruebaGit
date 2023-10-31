@@ -14,3 +14,13 @@ export const newStudent = (req, res) => {
     res.status(500).json({ error: e })
   }
 }
+
+export const deleteStudent = (req, res) => {
+  try {
+    Student.findOneAndRemove({ email: req.body.email }).then((_) => {
+      res.status(200).json({ status: 'Eliminado' })
+    })
+  } catch (e) {
+    res.status(500).json({ error: e })
+  }
+}

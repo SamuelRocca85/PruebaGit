@@ -9,21 +9,16 @@ const port = 3000
 app.use(json())
 
 connect(process.env.MONGOOSE_KEY, { useNewUrlParser: true })
-// const Alumno = model('Alumno', {
-//   id: Number,
-//   name: String,
-//   age: Number,
-// })
 
-app.get('/', (req, res) => {
+app.get('/', (_req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/es', (req, res) => {
+app.get('/es', (_req, res) => {
   res.send('Hola Mundo!')
 })
 
-app.get('/home', (req, res) => {
+app.get('/home', (_req, res) => {
   res.send('Home')
 })
 
