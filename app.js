@@ -1,28 +1,20 @@
-import express, { json } from 'express'
-import { connect, model } from 'mongoose'
+import express from 'express'
+import { connect } from 'mongoose'
 import dotenv from 'dotenv'
+import PizzaRoute from './routes/pizzaRoute.js'
+import IngredientRoute from './routes/ingredientRoute.js'
+import MenuRoute from './routes/menuRoute.js'
 dotenv.config()
-import studentRoute from './routes/studentRoutes.js'
 const app = express()
 const port = 3000
 
-app.use(json())
+app.use(express.json())
 
 connect(process.env.MONGOOSE_KEY, { useNewUrlParser: true })
 
-app.get('/', (_req, res) => {
-  res.send('Hello World!')
-})
-
-app.get('/es', (_req, res) => {
-  res.send('Hola Mundo!')
-})
-
-app.get('/home', (_req, res) => {
-  res.send('Home')
-})
-
-app.use(studentRoute)
+app.use(PizzaRoute)
+app.use(IngredientRoute)
+app.use(MenuRoute)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
