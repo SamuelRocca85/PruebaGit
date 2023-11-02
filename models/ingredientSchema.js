@@ -1,11 +1,11 @@
 import mongoose from 'mongoose'
 
 const IngredientSchema = mongoose.Schema({
-  name: {
+  sku: {
     type: String,
     required: true,
   },
-  sku: {
+  name: {
     type: String,
     required: true,
   },
