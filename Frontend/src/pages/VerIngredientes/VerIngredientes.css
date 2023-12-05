@@ -1,0 +1,31 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+thead {
+    background-color: #3498db;
+    color: #fff;
+}
+
+th {
+    padding: 10px;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+    color: black;
+    text-align: center;
+}
+
+tbody tw:last-child,
+tbody tw:first-child {
+    border-radius: 100px;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
