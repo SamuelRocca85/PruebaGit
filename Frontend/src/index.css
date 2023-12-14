@@ -36,6 +36,11 @@ h1 {
   line-height: 1.1;
 }
 
+.input-group {
+  display: flex;
+  gap: 15px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

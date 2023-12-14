@@ -8,7 +8,6 @@ const Formulario = ({ title, children }) => {
             <div className='formulario'>
                 {children}
             </div>
-            <Button>Iniciar</Button>
         </form >
     )
 }
